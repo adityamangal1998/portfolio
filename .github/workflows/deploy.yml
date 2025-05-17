@@ -1,76 +1,34 @@
-name: Deploy Flask App to EC2
+name: Push-to-EC2
 
 on:
   push:
     branches:
-      - main  # Or your default branch
+      - main
 
 jobs:
   deploy:
+    name: Deploy to EC2 on master branch push
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout the files
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
+      - name: Deploy to Server 1
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
 
-    # Optional: Install dependencies and run tests
-    # - name: Install dependencies
-    #   run: |
-    #     python -m pip install --upgrade pip
-    #     pip install -r requirements.txt
-    # - name: Run tests
-    #   run: |
-    #     pytest
-
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.EC2_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H 3.111.20.35 >> ~/.ssh/known_hosts
-
-    # Fix SSH key permissions and format (prevent libcrypto error)
-    - name: Fix SSH key permissions
-      run: |
-        chmod 600 ~/.ssh/id_rsa
-
-    # Debug SSH key
-    - name: Debug SSH key
-      run: |
-        ls -l ~/.ssh
-        file ~/.ssh/id_rsa
-        head -5 ~/.ssh/id_rsa
-        ssh-keygen -l -f ~/.ssh/id_rsa || true
-
-    # Check private key format
-    - name: Print first lines of private key
-      run: |
-        head -10 ~/.ssh/id_rsa
-        echo "If the above does not start with '-----BEGIN OPENSSH PRIVATE KEY-----' or '-----BEGIN RSA PRIVATE KEY-----', your secret is not a valid private key!"
-
-    # Print whoami and home
-    - name: Print whoami and home
-      run: |
-        whoami
-        echo $HOME
-
-    - name: Deploy and restart Flask app on EC2
-      env:
-        GIT_SSH_COMMAND: "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -o IdentitiesOnly=yes"
-      run: |
-        set -x
-        ls -l ~/.ssh
-        ssh -v -o StrictHostKeyChecking=no -o IdentitiesOnly=yes ubuntu@3.111.20.35 << 'EOF'
-          cd ~/portfolio
-          git pull origin main
-          # If you use a virtual environment:
-          # source venv/bin/activate
-          # pip install -r requirements.txt
-          sudo systemctl restart flaskapp.service
-          exit
-        EOF
+      - name: Executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/portfolio
+            git pull origin main
+            sudo systemctl restart flaskapp.service
