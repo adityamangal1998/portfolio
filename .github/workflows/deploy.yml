@@ -37,7 +37,6 @@ jobs:
     # Fix SSH key permissions and format (prevent libcrypto error)
     - name: Fix SSH key permissions
       run: |
-        dos2unix ~/.ssh/id_rsa || true
         chmod 600 ~/.ssh/id_rsa
 
     # Debug SSH key
