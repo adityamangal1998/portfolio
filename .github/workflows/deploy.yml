@@ -30,15 +30,21 @@ jobs:
     - name: Set up SSH key
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.EC2_KEY }}" > ~/.ssh/id_rsa
+        echo "${{ secrets.EC2_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -H 3.111.20.35 >> ~/.ssh/known_hosts
 
+    # Fix SSH key permissions and format (prevent libcrypto error)
+    - name: Fix SSH key permissions
+      run: |
+        dos2unix ~/.ssh/id_rsa || true
+        chmod 600 ~/.ssh/id_rsa
+
     - name: Deploy and restart Flask app on EC2
       env:
-        GIT_SSH_COMMAND: "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no"
+        GIT_SSH_COMMAND: "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -o IdentitiesOnly=yes"
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@3.111.20.35 << 'EOF'
+        ssh -o StrictHostKeyChecking=no -o IdentitiesOnly=yes ubuntu@3.111.20.35 << 'EOF'
           cd ~/portfolio
           git pull origin main
           # If you use a virtual environment:
