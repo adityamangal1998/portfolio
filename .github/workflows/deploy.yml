@@ -48,6 +48,12 @@ jobs:
         head -5 ~/.ssh/id_rsa
         ssh-keygen -l -f ~/.ssh/id_rsa || true
 
+    # Check private key format
+    - name: Print first lines of private key
+      run: |
+        head -10 ~/.ssh/id_rsa
+        echo "If the above does not start with '-----BEGIN OPENSSH PRIVATE KEY-----' or '-----BEGIN RSA PRIVATE KEY-----', your secret is not a valid private key!"
+
     # Print whoami and home
     - name: Print whoami and home
       run: |
