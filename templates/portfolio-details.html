@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Portfolio Details - iPortfolio Bootstrap Template</title>
+  <title>{{ project_data.title }} - Aditya Mangal</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -26,14 +26,6 @@
 
   <!-- Main CSS File -->
   <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="portfolio-details-page">
@@ -42,21 +34,19 @@
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
-      <img src="{{ url_for('static', filename='assets/img/my-profile-img.jpg') }}" alt="" class="img-fluid rounded-circle">
+      <img src="{{ url_for('static', filename='assets/img/profile-pic.png') }}" alt="" class="img-fluid rounded-circle">
     </div>
 
     <a href="{{ url_for('home') }}" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="{{ url_for('static', filename='assets/images/logo.png') }}" alt=""> -->
-      <h1 class="sitename">Alex Smith</h1>
+      <h1 class="sitename">Aditya Mangal</h1>
     </a>
 
     <div class="social-links text-center">
-      <a href="https://twitter.com" class="twitter"><i class="bi bi-twitter-x"></i></a>
-      <a href="https://facebook.com" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="https://instagram.com" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="https://skype.com" class="google-plus"><i class="bi bi-skype"></i></a>
-      <a href="https://linkedin.com" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
     </div>
 
     <nav id="navmenu" class="navmenu">
@@ -72,7 +62,7 @@
     <!-- Page Title -->
     <div class="page-title dark-background">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Portfolio Details</h1>
+        <h1 class="mb-2 mb-lg-0">{{ project_data.title }}</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -109,15 +99,11 @@
               </script>
 
               <div class="swiper-wrapper align-items-center">
-
+                {% for image in project_data.images %}
                 <div class="swiper-slide">
-                  <img src="{{ url_for('static', filename='assets/img/portfolio/project-1.jpg') }}" alt="">
+                  <img src="{{ url_for('static', filename='assets/img/portfolio/' + image) }}" alt="{{ project_data.title }}">
                 </div>
-
-                <div class="swiper-slide">
-                  <img src="{{ url_for('static', filename='assets/img/portfolio/project-2.jpg') }}" alt="">
-                </div>
-
+                {% endfor %}
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -127,23 +113,38 @@
             <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
               <h3>Project Information</h3>
               <ul>
-                <li><strong>Category:</strong> AI & Machine Learning</li>
-                <li><strong>Client:</strong> Various</li>
-                <li><strong>Project Date:</strong> Ongoing</li>
-                <li><strong>Project URL:</strong> <a href="https://github.com/adityamangal1998">GitHub</a></li>
+                <li><strong>Category:</strong> {{ project_data.category }}</li>
+                <li><strong>Technologies:</strong> {{ project_data.technologies|join(', ') }}</li>
+                <li><strong>Project Date:</strong> {{ project_data.date }}</li>
+                {% if project_data.github_link %}
+                <li><strong>GitHub:</strong> <a href="{{ project_data.github_link }}" target="_blank">View Project on GitHub</a></li>
+                {% endif %}
               </ul>
             </div>
             <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Highlighted Projects</h2>
-              <p>
-                <strong>Prescription Scanning:</strong> AI-powered system for extracting structured data from handwritten prescriptions.<br>
-                <strong>Image Super-Resolution:</strong> Enhanced low-resolution images using ViT-based models.<br>
-                <strong>Face Recognition Attendance:</strong> Streamlined attendance management with face recognition.<br>
-                <strong>Home Automation:</strong> IoT-based system for remote appliance control and electricity monitoring.
-              </p>
+              <h2>{{ project_data.title }}</h2>
+              <p>{{ project_data.description }}</p>
             </div>
           </div>
 
+        </div>
+
+        <!-- Project Details -->
+        <div class="row mt-5">
+          <div class="col-12">
+            <h3>Implementation Details</h3>
+            <p>{{ project_data.implementation }}</p>
+            
+            {% if project_data.challenges %}
+            <h3>Challenges & Solutions</h3>
+            <p>{{ project_data.challenges }}</p>
+            {% endif %}
+            
+            {% if project_data.outcomes %}
+            <h3>Outcomes & Results</h3>
+            <p>{{ project_data.outcomes }}</p>
+            {% endif %}
+          </div>
         </div>
 
       </div>
@@ -153,20 +154,11 @@
   </main>
 
   <footer id="footer" class="footer position-relative light-background">
-
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Aditya Mangal</strong> <span>All Rights Reserved</span></p>
       </div>
     </div>
-
   </footer>
 
   <!-- Scroll Top -->
