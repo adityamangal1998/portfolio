@@ -22,13 +22,22 @@
   <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
   <!-- Main CSS File -->
   <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet">
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    .skill-badge:hover {
+      color: blue !important;
+    }
+    .badge.rounded-pill {
+      transition: all 0.3s ease;
+    }
+    
+    .badge.rounded-pill:hover {
+      background-color: rgba(13, 110, 253, 0.1) !important;
+      color: #0d6efd !important; /* Bootstrap primary blue */
+      border-color: #0d6efd !important;
+      transform: translateY(-2px);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 
 <body class="index-page">
@@ -58,6 +67,7 @@
       <ul>
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
         <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="#skills"><i class="bi bi-person navicon"></i> Skills</a></li>
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
@@ -90,7 +100,7 @@
             <img src="{{ url_for('static', filename='assets/img/profile1.jpg') }}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 content">
-            <h2>Senior Research Engineer</h2>
+            <h2>Senior Data Scientist</h2>
             <p class="fst-italic py-3">
               Gold Medalist from IIIT Surat with expertise in AI, Machine Learning, and Cloud MLOps. Passionate about solving real-world problems with innovative solutions.
             </p>
@@ -99,59 +109,139 @@
               <li><strong>Email:</strong> adityamangal98@gmail.com</li>
               <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/aditya-mangal">linkedin.com/in/aditya-mangal</a></li>
               <li><strong>GitHub:</strong> <a href="https://github.com/adityamangal1998">github.com/adityamangal1998</a></li>
+              <li><strong>Medium:</strong> <a href="https://medium.com/@adityamangal98">medium.com/@adityamangal98</a></li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-
     <!-- Skills Section -->
     <section id="skills" class="skills section light-background">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>Proficient in a wide range of technical domains and tools.</p>
+        <h2>Technical Skills</h2>
+        <p>Proficient in a diverse range of technical domains and cutting-edge tools.</p>
       </div>
+      
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row skills-content skills-animation">
-          <div class="col-lg-6">
-            <div class="progress">
-              <span class="skill">Machine Learning <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-            <div class="progress">
-              <span class="skill">Deep Learning <i class="val">95%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-            <div class="progress">
-              <span class="skill">Computer Vision <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+        <!-- AI & ML Skills -->
+        <div class="card skill-card mb-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h3 class="card-title mb-3 text-primary"><i class="bi bi-braces-asterisk me-2"></i>AI & Machine Learning</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Machine Learning</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Deep Learning</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Computer Vision</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Natural Language Processing</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Statistical Analysis</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Data Analytics</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Quantitative Analysis</span>
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="progress">
-              <span class="skill">Cloud MLOps <i class="val">85%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+        </div>
+
+        <!-- AI Models & Tools -->
+        <div class="card skill-card mb-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h3 class="card-title mb-3 text-primary"><i class="bi bi-cpu me-2"></i>AI Models & Tools</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">YOLO</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Tesseract</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">LLAMA</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">LayoutLM</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Transformers</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">RAG</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">LLM</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Hugging Face</span>
             </div>
-            <div class="progress">
-              <span class="skill">NLP <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+          </div>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="card skill-card mb-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h3 class="card-title mb-3 text-primary"><i class="bi bi-boxes me-2"></i>Frameworks</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">TensorFlow</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">PyTorch</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Keras</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">OpenCV</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">BERT</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">LangChain</span>
             </div>
-            <div class="progress">
-              <span class="skill">Web Development <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+          </div>
+        </div>
+
+        <!-- Cloud MLOps -->
+        <div class="card skill-card mb-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h3 class="card-title mb-3 text-primary"><i class="bi bi-cloud-arrow-up me-2"></i>Cloud MLOps</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">AWS</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">GCP</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">E2E</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">FluidStack</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Heroku</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">AWS Bedrock</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">EC2</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Multi-GPU Handling</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Docker</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Sagemaker</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Load Balancer</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">AutoScaler</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">CloudWatch</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Jenkins</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Github</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Gitlab</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Bitbucket</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">MLFlow</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Programming Languages -->
+        <div class="card skill-card mb-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h3 class="card-title mb-3 text-primary"><i class="bi bi-code-slash me-2"></i>Programming</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">C/C++</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Python</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Dart</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Assembly Language</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Embedded C</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="card skill-card mb-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h3 class="card-title mb-3 text-primary"><i class="bi bi-database me-2"></i>Databases</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">MySQL</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Firebase</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">MongoDB</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">AWS S3</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">ChromaDB</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">FaissDB</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Milvus</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Qdrants</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Development -->
+        <div class="card skill-card mb-4 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h3 class="card-title mb-3 text-primary"><i class="bi bi-globe me-2"></i>Web Development</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">HTML</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">CSS</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Bootstrap</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">JavaScript</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Flask</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Django</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">FastAPI</span>
             </div>
           </div>
         </div>
@@ -159,7 +249,6 @@
     </section><!-- /Skills Section -->
 
    <!-- Resume Section -->
-<!-- Resume Section -->
 <section id="resume" class="resume section">
 
   <!-- Section Title -->
@@ -182,7 +271,7 @@
             <li>Noida, India</li>
             <li>8619131789</li>
             <li>adityamangal98@gmail.com</li>
-            <li><a href="https://www.linkedin.com/in/aditya-mangal">LinkedIn</a> | <a href="https://github.com/adityamangal1998">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/aditya-mangal">LinkedIn</a> | <a href="https://github.com/adityamangal1998">GitHub</a> | <a href="https://medium.com/@adityamangal98">Medium</a></li>
           </ul>
         </div><!-- End Resume Item -->
 
@@ -194,7 +283,7 @@
         </div><!-- End Resume Item -->
 
         <div class="resume-item">
-          <h4>12th (HSC)</h4>
+          <h4>12th (HSC)</h5>
           <h5>2015 - 2016</h5>
           <p><em>Board of Senior Secondary Education, Rajasthan</em> - 88.60%</p>
         </div><!-- End Resume Item -->
@@ -266,221 +355,18 @@
           <!-- Fine-Tuning TinyLlama on WhatsApp Chats -->
           <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
             <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/app-1.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ url_for('static', filename='assets/img/portfolio/tiny-llama-1.png') }}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Fine-Tuning TinyLlama on WhatsApp Chats</h4>
                 <p>Fine-tuned TinyLlama-1.1B on personal WhatsApp chat data to build a custom AI chatbot. Implemented LoRA &amp; PEFT for optimization and deployed for real-time interaction.</p>
-                <span class="badge bg-secondary">TinyLlama</span>
-                <span class="badge bg-secondary">LoRA</span>
-                <span class="badge bg-secondary">PEFT</span>
-                <span class="badge bg-secondary">Python</span>
-                <a href="https://github.com/adityamangal1998" title="GitHub Repo" class="details-link" target="_blank"><i class="bi bi-github"></i></a>
-                <a href="{{ url_for('portfolio_details', project='tiny-llama') }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Improving SQL Queries with Fine-Tuning -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-            <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/app-2.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Improving SQL Queries with Fine-Tuning</h4>
-                <p>Fine-tuned LLaMA-2-7B to generate and optimize SQL queries with RAG-enhanced contextual retrieval. Focused on performance and real-time query improvements.</p>
-                <span class="badge bg-secondary">LLaMA-2</span>
-                <span class="badge bg-secondary">RAG</span>
-                <span class="badge bg-secondary">SQL</span>
-                <span class="badge bg-secondary">Hugging Face</span>
-                <a href="{{ url_for('portfolio_details', project='sql-queries') }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Prescription Scanning with LLM and RAG -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-            <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/app-3.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Prescription Scanning with LLM and RAG</h4>
-                <p>Developed a system to extract structured data from handwritten prescriptions using RAG and Bedrock-powered LLMs integrated with a medicine vector DB.</p>
-                <span class="badge bg-secondary">LLMs</span>
-                <span class="badge bg-secondary">RAG</span>
-                <span class="badge bg-secondary">FAISS</span>
-                <span class="badge bg-secondary">Bedrock API</span>
-                <a href="{{ url_for('portfolio_details', project='prescription-scanning') }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- InSa-Engine -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-            <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/product-1.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>InSa-Engine</h4>
-                <p>Built a robust service for extracting key information from insurance policy PDFs using RAG and LLMs. Integrated Polifyx and CAMS APIs.</p>
-                <span class="badge bg-secondary">FastAPI</span>
-                <span class="badge bg-secondary">LLMs</span>
-                <span class="badge bg-secondary">RAG</span>
-                <span class="badge bg-secondary">Kafka</span>
-                <span class="badge bg-secondary">OCR</span>
-                <a href="{{ url_for('portfolio_details', project='insa-engine') }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Table Detection using Vision-Language Models -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-            <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/product-2.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Table Detection using Vision-Language Models</h4>
-                <p>Fine-tuned Qwen2.5-VL-3B on PubTables-1M to detect and extract structured tables from scanned documents. Focused on layout and text accuracy.</p>
-                <span class="badge bg-secondary">Qwen2.5-VL</span>
-                <span class="badge bg-secondary">Vision-Language</span>
-                <span class="badge bg-secondary">PubTables</span>
-                <span class="badge bg-secondary">OCR</span>
-                <a href="{{ url_for('portfolio_details', project='table-detection') }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- InSa-Engine -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-            <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/product-1.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>InSa-Engine</h4>
-                <p>Built a robust service for extracting key information from insurance policy PDFs using RAG and LLMs. Integrated Polifyx and CAMS APIs.</p>
-                <span class="badge bg-secondary">FastAPI</span>
-                <span class="badge bg-secondary">LLMs</span>
-                <span class="badge bg-secondary">RAG</span>
-                <span class="badge bg-secondary">Kafka</span>
-                <span class="badge bg-secondary">OCR</span>
-                <a href="{{ url_for('portfolio_details', project='insa-engine') }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Table Detection using Vision-Language Models -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-            <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/product-2.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Table Detection using Vision-Language Models</h4>
-                <p>Fine-tuned Qwen2.5-VL-3B on PubTables-1M to detect and extract structured tables from scanned documents. Focused on layout and text accuracy.</p>
-                <span class="badge bg-secondary">Qwen2.5-VL</span>
-                <span class="badge bg-secondary">Vision-Language</span>
-                <span class="badge bg-secondary">PubTables</span>
-                <span class="badge bg-secondary">OCR</span>
-                <a href="{{ url_for('portfolio_details', project='table-detection') }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Image Super-Resolution with ViT -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-            <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/product-3.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Image Super-Resolution with ViT</h4>
-                <p>Used SwinIR (a ViT-based model) to upscale low-res images while preserving fine details. Optimized for real-world document clarity.</p>
-                <span class="badge bg-secondary">SwinIR</span>
-                <span class="badge bg-secondary">PyTorch</span>
-                <span class="badge bg-secondary">OpenCV</span>
-                <span class="badge bg-secondary">ViT</span>
-                <a href="{{ url_for('portfolio_details', project='image-super-resolution') }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- ViT-based Image Captioning -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-            <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/branding-1.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>ViT-based Image Captioning</h4>
-                <p>Combined ViT and GPT via BLIP for context-aware image captioning. Fine-tuned on custom datasets for AI storytelling.</p>
-                <span class="badge bg-secondary">ViT</span>
-                <span class="badge bg-secondary">GPT</span>
-                <span class="badge bg-secondary">BLIP</span>
-                <span class="badge bg-secondary">Transformers</span>
-                <a href="{{ url_for('portfolio_details', project='vit-image-captioning') }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Document Extraction using LayoutLM V3 -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-            <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/branding-2.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Document Extraction using LayoutLM V3</h4>
-                <p>Built a key-value extractor using LayoutLM V3, trained on SROIE, for accurate structured data retrieval from complex documents.</p>
-                <span class="badge bg-secondary">LayoutLM V3</span>
-                <span class="badge bg-secondary">SROIE</span>
-                <span class="badge bg-secondary">Transformers</span>
-                <a href="{{ url_for('portfolio_details', project='document-extraction') }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- KYC Docs Extraction -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-            <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/branding-3.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>KYC Docs Extraction</h4>
-                <p>Used YOLOv5 and Google OCR to extract information from PAN, Aadhaar, Passport, and Voter ID documents.</p>
-                <span class="badge bg-secondary">YOLOv5</span>
-                <span class="badge bg-secondary">OCR</span>
-                <span class="badge bg-secondary">Rule-based NLP</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question-Answering System for Insurance Docs -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-            <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/books-1.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Question-Answering System for Insurance Docs</h4>
-                <p>Fine-tuned BERT and used K-Means clustering to enable question answering in insurance policies within Polifyx.</p>
-                <span class="badge bg-secondary">BERT</span>
-                <span class="badge bg-secondary">KMeans</span>
-                <span class="badge bg-secondary">NLP</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- RoboDoctor - Healthcare Prediction Web App -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-            <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/books-2.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>RoboDoctor - Healthcare Prediction Web App</h4>
-                <p>Deployed ML models in a Flask app for predicting diseases like liver, cancer, heart ailments, and COVID-19 using symptoms and image data.</p>
-                <span class="badge bg-secondary">Flask</span>
-                <span class="badge bg-secondary">ML</span>
-                <span class="badge bg-secondary">X-Ray</span>
-                <span class="badge bg-secondary">CT Scan</span>
-                <span class="badge bg-secondary">Python</span>
-                <a href="https://github.com/adityamangal1998/RoboDoc_Hack36" title="GitHub Repo" class="details-link" target="_blank"><i class="bi bi-github"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- D3 - Driver Drowsiness Detection -->
-          <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-            <div class="portfolio-content h-100">
-              <img src="{{ url_for('static', filename='assets/img/portfolio/books-3.jpg') }}" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>D3 - Driver Drowsiness Detection</h4>
-                <p>Developed a drowsiness detector using 468 facial landmarks from Google MediaPipe to track signs of sleepiness and yawning.</p>
-                <span class="badge bg-secondary">MediaPipe</span>
-                <span class="badge bg-secondary">CV2</span>
-                <span class="badge bg-secondary">Python</span>
-                <a href="https://github.com/adityamangal1998/D3_HackStack" title="GitHub Repo" class="details-link" target="_blank"><i class="bi bi-github"></i></a>
+                <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">TinyLlama</span>
+                <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">LoRA</span>
+                <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">PEFT</span>
+                <span class="badge rounded-pill bg-light text-dark border px-3 py-2 skill-badge">Python</span>
+                <div class="portfolio-links">
+                  <a href="https://github.com/adityamangal1998" title="GitHub Repo" class="github-link" target="_blank"><i class="bi bi-github"></i></a>
+                  <a href="{{ url_for('portfolio_details', project='tiny-llama') }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
               </div>
             </div>
           </div>
@@ -540,7 +426,7 @@
           <div class="info-item d-flex align-items-center">
             <a href="https://www.linkedin.com/in/aditya-mangal" target="_blank"><i class="bi bi-linkedin"></i></a>
             <a href="https://github.com/adityamangal1998" target="_blank" class="ms-3"><i class="bi bi-github"></i></a>
-            <a href="https://www.kaggle.com/adityamangal1998" target="_blank" class="ms-3"><i class="bi bi-globe"></i></a>
+            <a href="https://medium.com/@adityamangal98" target="_blank" class="ms-3"><i class="bi bi-medium"></i></a>
           </div>
         </div>
       </div>
@@ -566,14 +452,7 @@
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Aditya Mangal</strong> <span>All Rights Reserved</span></p>
       </div>
     </div>
 

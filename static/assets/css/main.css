@@ -1,15 +1,3 @@
-/**
-* Template Name: iPortfolio
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Updated: Jun 29 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
 /* Fonts */
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -718,6 +706,108 @@ section,
   background-color: var(--accent-color);
 }
 
+/* Skills Section Styling */
+.skills-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.skill-category-section {
+  display: flex;
+  margin-bottom: 2.5rem;
+}
+
+.skill-heading {
+  flex: 0 0 200px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.skill-content {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-pill {
+  background-color: rgba(var(--color-primary-rgb), 0.05);
+  border-radius: 50px;
+  color: var(--color-secondary);
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+}
+
+.skill-pill:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 991px) {
+  .skill-category-section {
+    flex-direction: column;
+  }
+  
+  .skill-heading {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .skill-content {
+    gap: 8px;
+  }
+  
+  .skill-pill {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+}
+
+/* Skills section styling */
+.skill-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.badge.rounded-pill {
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.badge.rounded-pill:hover {
+  background-color: var(--color-primary) !important;
+  color: white !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.skill-card .card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .badge.rounded-pill {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem !important;
+  }
+}
+
 /*--------------------------------------------------------------
 # Resume Section
 --------------------------------------------------------------*/
@@ -888,6 +978,30 @@ section,
 
 .portfolio .portfolio-content:hover img {
   transform: scale(1.1);
+}
+
+.portfolio-info .portfolio-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.portfolio-info .portfolio-links a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.portfolio-info .portfolio-links a:hover {
+  color: #fff;
+  background: var(--color-primary);
 }
 
 /*--------------------------------------------------------------
@@ -1268,8 +1382,65 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Technical Skills Section Styling
+--------------------------------------------------------------*/
+.skill-category {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.skill-tag {
+  background-color: rgba(var(--color-primary-rgb), 0.1);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: 20px;
+  padding: 6px 15px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .skill-category {
+    margin-bottom: 10px;
+  }
+  
+  .row.mb-5 {
+    margin-bottom: 2rem !important;
+  }
+}
+
+/*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/* Add this to your existing CSS */
+.skill-badge {
+  transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.1) !important;
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }

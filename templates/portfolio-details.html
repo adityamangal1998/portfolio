@@ -52,6 +52,11 @@
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="{{ url_for('home') }}"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="{{ url_for('home') }}#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="{{ url_for('home') }}#skills"><i class="bi bi-person navicon"></i> Skills</a></li>
+        <li><a href="{{ url_for('home') }}#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="{{ url_for('home') }}#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
+        <li><a href="{{ url_for('home') }}#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
 
@@ -119,6 +124,9 @@
                 {% if project_data.github_link %}
                 <li><strong>GitHub:</strong> <a href="{{ project_data.github_link }}" target="_blank">View Project on GitHub</a></li>
                 {% endif %}
+                {% if project_data.medium_link %}
+                <li><strong>Medium Article:</strong> <a href="{{ project_data.medium_link }}" target="_blank">Read on Medium</a></li>
+                {% endif %}
               </ul>
             </div>
             <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
@@ -127,24 +135,6 @@
             </div>
           </div>
 
-        </div>
-
-        <!-- Project Details -->
-        <div class="row mt-5">
-          <div class="col-12">
-            <h3>Implementation Details</h3>
-            <p>{{ project_data.implementation }}</p>
-            
-            {% if project_data.challenges %}
-            <h3>Challenges & Solutions</h3>
-            <p>{{ project_data.challenges }}</p>
-            {% endif %}
-            
-            {% if project_data.outcomes %}
-            <h3>Outcomes & Results</h3>
-            <p>{{ project_data.outcomes }}</p>
-            {% endif %}
-          </div>
         </div>
 
       </div>
